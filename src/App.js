@@ -9,19 +9,11 @@ import ExpandLessIcon from "@mui/icons-material/ExpandLess";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import StarRateIcon from "@mui/icons-material/StarRate";
 
 export default function App() {
-  const names = [
-    "Baby driver",
-    "Inception",
-    "Django Unchained",
-    "The Dark Knight",
-    "joker",
-    "Rambo last blood",
-    "No time to die",
-    "Terminator dark fate",
-  ];
-
   //array of object
   const INITIAL_MOVIES = [
     {
@@ -177,7 +169,6 @@ export default function App() {
 function Hollywood({ name, poster, rating, summary }) {
   const styles = { color: rating >= 8.5 ? "green" : "red" };
   const [show, setShow] = useState(true);
-  const summaryStyles = { display: show ? "block" : "none" };
   return (
     // card starts here
     <Card className="movie-container">
@@ -199,7 +190,8 @@ function Hollywood({ name, poster, rating, summary }) {
             </IconButton>
           </p>
           <p style={styles} className="movie-rating">
-            ⭐ {rating}
+            <StarRateIcon />
+            {rating}
           </p>
         </div>
 
@@ -231,7 +223,7 @@ function Counter() {
         aria-label="like the movie"
       >
         <Badge badgeContent={like} color="primary">
-          👍
+          <ThumbUpIcon />
         </Badge>
       </IconButton>
 
@@ -243,7 +235,7 @@ function Counter() {
         aria-label="dislike the movie"
       >
         <Badge badgeContent={disLike} color="error">
-          👎
+          <ThumbDownIcon />
         </Badge>
       </IconButton>
     </div>
